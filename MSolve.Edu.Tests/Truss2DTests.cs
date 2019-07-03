@@ -15,8 +15,8 @@ namespace MSolve.Edu.Tests
             // Model and node creation
             Model model = new Model();
             model.NodesDictionary.Add(1, new Node { ID = 1, X = 0, Y = 0 });
-            model.NodesDictionary.Add(2, new Node { ID = 1, X = 0, Y = 40 });
-            model.NodesDictionary.Add(3, new Node { ID = 1, X = 40, Y = 40 });
+            model.NodesDictionary.Add(2, new Node { ID = 2, X = 0, Y = 40 });
+            model.NodesDictionary.Add(3, new Node { ID = 3, X = 40, Y = 40 });
             // Constrain bottom nodes of the model and add loads
             model.NodesDictionary[1].Constraints.AddRange(new[] { DOFType.X, DOFType.Y });
             model.NodesDictionary[2].Constraints.AddRange(new[] { DOFType.X, DOFType.Y });
