@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Dimitris Tsapetis, George Stavroulakis</Authors>
+    <Company>Institute of Structural Analysis and Seismic Research, National Technical University of Athens, School of Civil Engineering</Company>
+    <Product>MSolve.Edu</Product>
+    <Description>This package contains a set of classes for the calculation of finite element matrices for the solution of structural computational mechanics problems and for assembling the global stifness matrix of a model</Description>
+    <PackageProjectUrl>http://mgroup.ntua.gr</PackageProjectUrl>
+    <RepositoryUrl>http://github.com/isaar/msolve.edu</RepositoryUrl>
+    <RepositoryType>GitHub</RepositoryType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MSolve.Edu.LinearAlgebra\MSolve.Edu.LinearAlgebra.csproj" />
+    <ProjectReference Include="..\MSolve.Edu.Solvers\MSolve.Edu.Solvers.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Input\" />
+  </ItemGroup>
+
+</Project>

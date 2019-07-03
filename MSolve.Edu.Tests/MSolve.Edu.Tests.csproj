@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+
+    <Authors>Odysseas Kokkinos, George Stavroulakis, Dimitris Tsapetis, Serafeim Bakalakos, Maria Tavlaki</Authors>
+
+    <Company>Institute of Structural Analysis and Seismic Research, National Technical University of Athens, School of Civil Engineering</Company>
+
+    <Product>MSolve.Edu</Product>
+
+    <Description>This package contains a series of XUnit tests that demonstrates the solution of structural computational mechanics problems using the finite element method, from the creation of a finite element model to the calculation of all nodal displacements.</Description>
+
+    <PackageProjectUrl>http://mgroup.ntua.gr</PackageProjectUrl>
+
+    <RepositoryUrl>http://github.com/isaar/msolve.edu</RepositoryUrl>
+
+    <RepositoryType>GitHub</RepositoryType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
+    <PackageReference Include="xunit" Version="2.4.0" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MSolve.Edu.Analyzers\MSolve.Edu.Analyzers.csproj" />
+    <ProjectReference Include="..\MSolve.Edu.FEM\MSolve.Edu.FEM.csproj" />
+    <ProjectReference Include="..\MSolve.Edu.Solvers\MSolve.Edu.Solvers.csproj" />
+  </ItemGroup>
+
+</Project>

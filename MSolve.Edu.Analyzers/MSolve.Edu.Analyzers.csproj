@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Product>MSolve.Edu</Product>
+    <Authors>Maria Tavlaki, George Stavroulakis</Authors>
+    <Company>Institute of Structural Analysis and Seismic Research, National Technical University of Athens, School of Civil Engineering</Company>
+    <Description>This package interconnects the MSolve.Edu.FEM and MSolve.Edu.Solvers for the generation of the linear system of equations that represents a specific FEM model</Description>
+    <PackageProjectUrl>http://mgroup.ntua.gr</PackageProjectUrl>
+    <RepositoryUrl>http://github.com/isaar/msolve.edu</RepositoryUrl>
+    <RepositoryType>GitHub</RepositoryType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MSolve.Edu.FEM\MSolve.Edu.FEM.csproj" />
+    <ProjectReference Include="..\MSolve.Edu.Solvers\MSolve.Edu.Solvers.csproj" />
+  </ItemGroup>
+
+</Project>
