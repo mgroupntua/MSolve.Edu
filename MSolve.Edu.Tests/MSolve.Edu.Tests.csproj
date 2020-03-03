@@ -18,6 +18,8 @@
     <RepositoryUrl>http://github.com/isaar/msolve.edu</RepositoryUrl>
 
     <RepositoryType>GitHub</RepositoryType>
+
+    <StartupObject>MSolve.Edu.Tests.Program</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>

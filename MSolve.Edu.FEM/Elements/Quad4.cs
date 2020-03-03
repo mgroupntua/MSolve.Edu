@@ -130,7 +130,7 @@ namespace MSolve.Edu.FEM.Elements
 		/// <param name="fXi">Xi coordinate of the integration point</param>
 		/// <param name="fEta">Eta coordinate of the integration point.</param>
 		/// <returns></returns>
-		private double[] CalcQ4Shape(double fXi, double fEta)
+		public double[] CalcQ4Shape(double fXi, double fEta)
 		{
 			// QUAD4 ELEMENT
 			//
@@ -480,7 +480,7 @@ namespace MSolve.Edu.FEM.Elements
 			return faForces;
 		}
 
-		private double[] GetNaturalCoordinates(Element element, Node node)
+		public double[] GetNaturalCoordinates(Element element, Node node)
 		{
 			double[] mins = new double[] {element.Nodes[0].X, element.Nodes[0].Y};
 			double[] maxes = new double[] {element.Nodes[0].X, element.Nodes[0].Y};
