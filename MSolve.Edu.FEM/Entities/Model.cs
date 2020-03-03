@@ -153,5 +153,43 @@ namespace MSolve.Edu.FEM.Entities
 			NodesDictionary.Clear();
 			NodalDOFsDictionary.Clear();
 		}
-	}
+
+        /// <summary>
+        /// If no such node exists, null will be returned.
+        /// </summary>
+        public Node FindNode(double x, double y, double meshTolerance = 1E-6)
+        {
+            foreach (Node node in NodesDictionary.Values)
+            {
+                if ((Math.Abs(node.X - x) <= meshTolerance) && (Math.Abs(node.Y - y) <= meshTolerance)) return node;
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// If no such nodes exists, an empty list will be returned.
+        /// </summary>
+        public List<Node> FindNodesWithX(double x, double meshTolerance = 1E-6)
+        {
+            var targetNodes = new List<Node>();
+            foreach (Node node in NodesDictionary.Values)
+            {
+                if (Math.Abs(node.X - x) <= meshTolerance) targetNodes.Add(node);
+            }
+            return targetNodes;
+        }
+
+        /// <summary>
+        /// If no such nodes exists, an empty list will be returned.
+        /// </summary>
+        public List<Node> FindNodesWithY(double y, double meshTolerance = 1E-6)
+        {
+            var targetNodes = new List<Node>();
+            foreach (Node node in NodesDictionary.Values)
+            {
+                if (Math.Abs(node.Y - y) <= meshTolerance) targetNodes.Add(node);
+            }
+            return targetNodes;
+        }
+    }
 }
