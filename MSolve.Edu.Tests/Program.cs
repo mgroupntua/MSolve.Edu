@@ -8,7 +8,7 @@ namespace MSolve.Edu.Tests
     {
         public static void Main(string[] args)
         {
-            Cantilever2DTests.TestDisplacementsAtCantileverFibers();
+            Lectures.FEM1_March2020.RunExample();
         }
     }
 }
