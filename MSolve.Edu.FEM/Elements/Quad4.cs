@@ -11,7 +11,7 @@ namespace MSolve.Edu.FEM.Elements
 	/// Represents a quadrilateral two-dimensional element with four nodes. Can be used with either plane stress or plane strain materials.
 	/// For further information on the isoparametric quadrilateral elements please refer to http://kis.tu.kielce.pl/mo/COLORADO_FEM/colorado/IFEM.Ch17.pdf
 	/// </summary>
-	public class Quad4 : Element
+	public class Quad4 : IElementType
 	{
 		private static double determinantTolerance = 0.00000001;
 
@@ -54,23 +54,23 @@ namespace MSolve.Edu.FEM.Elements
 		public Quad4(ElasticMaterial2D material, GenericDOFEnumerator dofEnumerator)
 			: this(material) => this.dofEnumerator = dofEnumerator;
 
-		/// <summary>
-		/// Density of the material used in <see cref="Quad4"/>
-		/// </summary>
-		public double Density { get; set; }
+        /// <summary>
+        /// Density of the material used in <see cref="Quad4"/>
+        /// </summary>
+        public double Density { get; set; } = 1.0;
 
-		/// <summary>
-		/// Thickness t, of the isoparametric four-noded quadrilateral.
-		/// Constant throught the element.
-		/// Must be initialized at the instantiation of a <see cref="Quad4"/> element,
-		/// otherwise will result in a zero stiffness matrix.
-		/// </summary>
-		public double Thickness { get; set; }
+        /// <summary>
+        /// Thickness t, of the isoparametric four-noded quadrilateral.
+        /// Constant throught the element.
+        /// Must be initialized at the instantiation of a <see cref="Quad4"/> element,
+        /// otherwise will result in a zero stiffness matrix.
+        /// </summary>
+        public double Thickness { get; set; } = 1.0;
 
 		/// <summary>
 		/// <inheritdoc cref="GenericDOFEnumerator"/>
 		/// </summary>
-		public override GenericDOFEnumerator DOFEnumerator
+		public GenericDOFEnumerator DOFEnumerator
 		{
 			get => dofEnumerator;
 			set => dofEnumerator = value;
@@ -115,7 +115,7 @@ namespace MSolve.Edu.FEM.Elements
 		/// </summary>
 		/// <param name="element">An element of type <see cref="Quad4"/></param>
 		/// <returns></returns>
-		public override IList<IList<DOFType>> GetElementDOFTypes(Element element) => dofTypes;
+		public IList<IList<DOFType>> GetElementDOFTypes(Element element) => dofTypes;
 
 		/// <summary>
 		/// A list with the nodes of the <see cref="Quad4"/> element.
@@ -389,7 +389,7 @@ namespace MSolve.Edu.FEM.Elements
 		/// </summary>
 		/// <param name="element">An element of type <see cref="Quad4"/> </param>
 		/// <returns>A (8x8) stiffness matrix of the <see cref="Quad4"/> </returns>
-		public override Matrix2D StiffnessMatrix(Element element)
+		public Matrix2D StiffnessMatrix(Element element)
 		{
 			double[,] coordinates = this.GetCoordinates(element);
 			GaussLegendrePoint3D[] integrationPoints = this.CalculateGaussMatrices(coordinates);

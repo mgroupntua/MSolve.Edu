@@ -10,25 +10,25 @@ namespace MSolve.Edu.FEM.Elements
 	/// please refer to <see href="http://www.unm.edu/~bgreen/ME360/Finite%20Element%20Truss.pdf"/>
 	/// </summary>
 	/// <seealso cref="MSolve.Edu.FEM.Entities.Element" />
-	public class Truss2D : Element
+	public class Truss2D : IElementType
 	{
 		private static readonly DOFType[] nodalDOFTypes = new DOFType[2] { DOFType.X, DOFType.Y };
 		private static readonly DOFType[][] dofs = new DOFType[][] { nodalDOFTypes, nodalDOFTypes };
 		private readonly double youngModulus;
 		private GenericDOFEnumerator dofEnumerator = new GenericDOFEnumerator();
 
-		/// <summary>
-		/// Density of the material used in <see cref="Truss2D"/>
-		/// </summary>
-		public double Density { get; set; }
+        /// <summary>
+        /// Density of the material used in <see cref="Truss2D"/>
+        /// </summary>
+        public double Density { get; set; } = 1.0;
 
-		/// <summary>
-		/// Cross-section area A, of the Euler-Bernoulli beam formulation.
-		/// Constant throughout the length of the beam element.
-		/// Must be initialized at the instantiation of a <see cref="Truss2D"/> element,
-		/// otherwise will result in zero-element of the stiffness matrix.
-		/// </summary>
-		public double SectionArea { get; set; }
+        /// <summary>
+        /// Cross-section area A, of the Euler-Bernoulli beam formulation.
+        /// Constant throughout the length of the beam element.
+        /// Must be initialized at the instantiation of a <see cref="Truss2D"/> element,
+        /// otherwise will result in zero-element of the stiffness matrix.
+        /// </summary>
+        public double SectionArea { get; set; } = 1.0;
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="Truss2D"/> class.
@@ -58,7 +58,7 @@ namespace MSolve.Edu.FEM.Elements
 		/// <summary>
 		/// <inheritdoc cref="GenericDOFEnumerator"/>
 		/// </summary>
-		public override GenericDOFEnumerator DOFEnumerator
+		public GenericDOFEnumerator DOFEnumerator
 		{
 			get => dofEnumerator;
 			set => dofEnumerator = value;
@@ -69,7 +69,7 @@ namespace MSolve.Edu.FEM.Elements
 		/// </summary>
 		/// <param name="element">An element of type <see cref="Truss2D"/></param>
 		/// <returns></returns>
-		public override IList<IList<DOFType>> GetElementDOFTypes(Element element) => dofs;
+		public IList<IList<DOFType>> GetElementDOFTypes(Element element) => dofs;
 
 		/// <summary>
 		/// A list with the nodes of the <see cref="Truss2D"/> element.
@@ -117,7 +117,7 @@ namespace MSolve.Edu.FEM.Elements
 		/// </summary>
 		/// <param name="element">An element of type <see cref="Truss2D"/> </param>
 		/// <returns>A (4x4) stiffness matrix of the <see cref="Truss2D"/> </returns>
-		public override Matrix2D StiffnessMatrix(Element element)
+		public Matrix2D StiffnessMatrix(Element element)
 		{
 			double x2 = Math.Pow(element.INodes[1].X - element.INodes[0].X, 2);
 			double y2 = Math.Pow(element.INodes[1].Y - element.INodes[0].Y, 2);

@@ -10,7 +10,7 @@ namespace MSolve.Edu.FEM.Elements
 	/// For further information about the Euler-Bernoulli beam theory used for this element
 	/// please refer to https://en.wikipedia.org/wiki/Euler%E2%80%93Bernoulli_beam_theory
 	/// </summary>
-	public class EulerBeam2D : Element
+	public class EulerBeam2D : IElementType
 	{
 		private static readonly DOFType[] nodalDOFTypes = new DOFType[3] {DOFType.X, DOFType.Y, DOFType.RotZ};
 		private static readonly DOFType[][] dofs = new DOFType[][] {nodalDOFTypes, nodalDOFTypes};
@@ -67,7 +67,7 @@ namespace MSolve.Edu.FEM.Elements
 		/// <summary>
 		/// <inheritdoc cref="GenericDOFEnumerator"/>
 		/// </summary>
-		public override GenericDOFEnumerator DOFEnumerator
+		public GenericDOFEnumerator DOFEnumerator
 		{
 			get => dofEnumerator;
 			set => dofEnumerator = value;
@@ -78,7 +78,7 @@ namespace MSolve.Edu.FEM.Elements
 		/// </summary>
 		/// <param name="element">An element of type <see cref="EulerBeam2D"/></param>
 		/// <returns></returns>
-		public override IList<IList<DOFType>> GetElementDOFTypes(Element element) => dofs;
+		public IList<IList<DOFType>> GetElementDOFTypes(Element element) => dofs;
 
 		/// <summary>
 		/// A list with the nodes of the <see cref="EulerBeam2D"/> element.
@@ -93,7 +93,7 @@ namespace MSolve.Edu.FEM.Elements
 		/// </summary>
 		/// <param name="element">An element of type <see cref="EulerBeam2D"/> </param>
 		/// <returns>A (6x6) stiffness matrix of the <see cref="EulerBeam2D"/> </returns>
-		public override Matrix2D StiffnessMatrix(Element element)
+		public Matrix2D StiffnessMatrix(Element element)
 		{
 			double x2 = Math.Pow(element.INodes[1].X - element.INodes[0].X, 2);
 			double y2 = Math.Pow(element.INodes[1].Y - element.INodes[0].Y, 2);

@@ -1,33 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using MSolve.Edu.FEM.Elements;
 using MSolve.Edu.LinearAlgebra;
 
 namespace MSolve.Edu.FEM.Entities
 {
 	/// <summary>
-	/// An abstract Element class that defines the basic properties and methods of a finite element.
+	/// Defines the connectivity of a finite element.
 	/// </summary>
-	public abstract class Element
+	public class Element
 	{
-        /// <summary>
-        /// <inheritdoc cref="GenericDOFEnumerator"/>
-        /// </summary>
-		public abstract GenericDOFEnumerator DOFEnumerator { get; set; }
-
-        /// <summary>
-        /// A list with size equal to the number of nodes, each containing a list with the degrees of freedom of each node.
-        /// </summary>
-        /// <param name="element"></param>
-        /// <returns></returns>
-		public abstract IList<IList<DOFType>> GetElementDOFTypes(Element element);
-
-		/// <summary>
-		/// Calculates the element stiffness matrix.
-		/// </summary>
-		/// <param name="element"></param>
-		/// <returns></returns>
-		public abstract Matrix2D StiffnessMatrix(Element element);
-		
 		/// <summary>
 		/// Gets or sets the element ID.
 		/// </summary>
@@ -41,7 +23,7 @@ namespace MSolve.Edu.FEM.Entities
 		/// <summary>
 		/// Gets or sets a concrete implementation the class.
 		/// </summary>
-		public Element ElementType { get; set; }
+		public IElementType ElementType { get; set; }
 
 		/// <summary>
 		/// A dictionary that contains the element nodes by IDs.

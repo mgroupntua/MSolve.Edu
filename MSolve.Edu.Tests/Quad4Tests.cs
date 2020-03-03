@@ -28,8 +28,8 @@ namespace MSolve.Edu.Tests
             // Create Quad4 element and its material
             var material = new ElasticMaterial2D(StressState2D.PlaneStress) { YoungModulus = 3.76, PoissonRatio = 0.3779 };
             var quad = new Quad4(material) { Thickness = 1 };
-            var element = new Quad4(material) { ID = 1, ElementType = quad };
-			// Add nodes to the created element
+            // Create the element connectivity
+            var element = new Element() { ID = 1, ElementType = quad };
 			element.AddNode(model.NodesDictionary[1]);
 			element.AddNode(model.NodesDictionary[2]);
 			element.AddNode(model.NodesDictionary[3]);
