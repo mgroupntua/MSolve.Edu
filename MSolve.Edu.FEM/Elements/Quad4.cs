@@ -54,6 +54,11 @@ namespace MSolve.Edu.FEM.Elements
 		public Quad4(ElasticMaterial2D material, GenericDOFEnumerator dofEnumerator)
 			: this(material) => this.dofEnumerator = dofEnumerator;
 
+		/// <summary>
+		/// Gets the code for this element type.
+		/// </summary>
+		public CellType Code => CellType.Quad4;
+
         /// <summary>
         /// Density of the material used in <see cref="Quad4"/>
         /// </summary>

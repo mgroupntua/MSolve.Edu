@@ -18,6 +18,11 @@ namespace MSolve.Edu.FEM.Elements
 		private GenericDOFEnumerator dofEnumerator = new GenericDOFEnumerator();
 
 		/// <summary>
+		/// Gets the code for this element type.
+		/// </summary>
+		public CellType Code => CellType.Line;
+
+		/// <summary>
 		/// Density of the material used in <see cref="EulerBeam2D"/>
 		/// </summary>
 		public double Density { get; set; }

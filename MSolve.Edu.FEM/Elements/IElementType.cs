@@ -9,6 +9,11 @@ namespace MSolve.Edu.FEM.Elements
     public interface IElementType
     {
         /// <summary>
+		/// Gets the code for this element type.
+		/// </summary>
+		CellType Code { get; }
+
+        /// <summary>
         /// <inheritdoc cref="GenericDOFEnumerator"/>
         /// </summary>
 		GenericDOFEnumerator DOFEnumerator { get; set; }

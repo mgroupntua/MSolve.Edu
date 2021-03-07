@@ -8,7 +8,8 @@ namespace MSolve.Edu.Tests
     {
         public static void Main(string[] args)
         {
-            Lectures.FEM1_March2020.RunExample();
+            Console.WriteLine("Welcome to MSolve.Edu!");
+            Lectures.Fem1Example.RunExample();
         }
     }
 }
