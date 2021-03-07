@@ -17,10 +17,15 @@ namespace MSolve.Edu.FEM.Elements
 		private readonly double youngModulus;
 		private GenericDOFEnumerator dofEnumerator = new GenericDOFEnumerator();
 
-        /// <summary>
-        /// Density of the material used in <see cref="Truss2D"/>
-        /// </summary>
-        public double Density { get; set; } = 1.0;
+		/// <summary>
+		/// Gets the code for this element type.
+		/// </summary>
+		public CellType Code => CellType.Line;
+
+		/// <summary>
+		/// Density of the material used in <see cref="Truss2D"/>
+		/// </summary>
+		public double Density { get; set; } = 1.0;
 
         /// <summary>
         /// Cross-section area A, of the Euler-Bernoulli beam formulation.

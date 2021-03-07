@@ -9,9 +9,10 @@ using MSolve.Edu.FEM.Output;
 using MSolve.Edu.LinearAlgebra;
 using MSolve.Edu.Solvers;
 
+
 namespace MSolve.Edu.Tests.Lectures
 {
-    public static class FEM1_March2020
+    public static class Fem1Example
     {
         private const double length = 5.0, height = 1.0, thickness = 1.0;
         private const double youngModulus = 2E7, poissonRatio = 0.3;
@@ -21,12 +22,6 @@ namespace MSolve.Edu.Tests.Lectures
         {
             int numElementsX = 15, numElementsY = 3;
 
-            // *******************************************************************************************
-            // *******************************************************************************************
-            // Excercise: Refine the mesh until the solutions converge
-            // *******************************************************************************************
-            // *******************************************************************************************
-
             // Create model
             Model model = CreateModel(numElementsX, numElementsY);
 
@@ -34,13 +29,27 @@ namespace MSolve.Edu.Tests.Lectures
             Vector freeDisplacements = RunAnalysis(model);
 
             // Output
-            PrintDisplacementsAlongBottomFiber(model, freeDisplacements);
+            // First of all prepare the object that will calculate the displacements at arbitrary points
+            var displacementOutput = new Quad4DisplacementOutput(model, freeDisplacements);
+
+            // Plot displacements
+            displacementOutput.PlotDisplacementField(@"C:\Users\Serafeim\Desktop\temp\displacements.vtk");
+
+            // *******************************************************************************************
+            // *******************************************************************************************
+            // Excercise: Refine the mesh until the solutions converge
+            // *******************************************************************************************
+            // *******************************************************************************************
+            Console.WriteLine("Max uy = " + displacementOutput.FindMaxDisplacementY());
+
 
             // *******************************************************************************************
             // *******************************************************************************************
             // Excercise: Print the displacements ux & uy along other fibers
             // *******************************************************************************************
             // *******************************************************************************************
+            PrintDisplacementsAlongBottomFiber(model, displacementOutput);
+
         }
 
         private static void ApplyCantileverBoundaryConditions(Model model)
@@ -81,33 +90,32 @@ namespace MSolve.Edu.Tests.Lectures
             }
 
             // Boundary conditions:
-            ApplyCantileverBoundaryConditions(model);
-
             // *******************************************************************************************
             // *******************************************************************************************
             // Excercise: Write your own boundary conditions for simply supported beam 
             // *******************************************************************************************
             // *******************************************************************************************
+            ApplyCantileverBoundaryConditions(model);
+
+
 
             // Finalize model creation
             model.ConnectDataStructures();
             return model;
         }
 
-        private static void PrintDisplacementsAlongBottomFiber(Model model, Vector freeDisplacements)
+        private static void PrintDisplacementsAlongBottomFiber(Model model, Quad4DisplacementOutput displacementOutput)
         {
-            // First of all prepare the object that will calculate the displacements at arbitrary points
-            var displacementOutput = new Quad4DisplacementOutput(model, freeDisplacements);
 
             // Define the points where the displacements will be calculated
-            double offset = 1E-3; // avoid searching at exactly the edge of the domain, since accuracy loss may vause problems
+            double offset = 1E-3; // avoid searching at exactly the edge of the domain, since accuracy loss may cause problems
             double[,] points =
             {
                 { 0 + offset, 0 + offset },
                 { 0.25 * length, 0 + offset },
-                {0.5 * length, 0 + offset },
-                {0.75 * length, 0 + offset },
-                {length - offset, 0 + offset }
+                { 0.5 * length, 0 + offset },
+                { 0.75 * length, 0 + offset },
+                { length - offset, 0 + offset }
             };
 
             // Calculate the displacements at these points
@@ -115,9 +123,8 @@ namespace MSolve.Edu.Tests.Lectures
             var displacementsYBottomFiber = new double[numPoints];
             for (int i = 0; i < numPoints; ++i)
             {
-
-                double[] Uxy = displacementOutput.FindDisplacementsAt(points[i, 0], points[i, 1]);
-                displacementsYBottomFiber[i] = Uxy[1];
+                double[] u = displacementOutput.FindDisplacementsAt(points[i, 0], points[i, 1]);
+                displacementsYBottomFiber[i] = u[1];
             }
 
             // Print the displacements
