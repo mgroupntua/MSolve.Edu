@@ -10,7 +10,7 @@ namespace MSolve.Edu.Tests
     public class Truss2DTests
     {
         [Fact]
-        private static void TestLinearTrussExample()
+        public static void TestLinearTrussExample()
         {
             // Model and node creation
             Model model = new Model();

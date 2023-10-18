@@ -11,7 +11,7 @@ namespace MSolve.Edu.Tests
 	public class Quad4Tests
 	{
 		[Fact]
-		public void TestQuad4LinearCantileverExample()
+		public static void TestQuad4LinearCantileverExample()
 		{
             // Model and node creation
             var model = new Model();
