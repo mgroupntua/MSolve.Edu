@@ -33,7 +33,7 @@ namespace MSolve.Edu.Tests.Lectures
             var displacementOutput = new Quad4DisplacementOutput(model, freeDisplacements);
 
             // Plot displacements
-            displacementOutput.PlotDisplacementField(@"C:\Users\Serafeim\Desktop\temp\displacements.vtk");
+            displacementOutput.PlotDisplacementField(@"C:\Users\User0\Desktop\FEMLecture\displacements.vtk");
 
             // *******************************************************************************************
             // *******************************************************************************************

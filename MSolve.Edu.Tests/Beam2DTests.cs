@@ -10,7 +10,7 @@ namespace MSolve.Edu.Tests
     public class Beam2DTests
     {
         [Fact]
-        public void TestEulerBeam2DLinearBendingExample()
+        public static void TestEulerBeam2DLinearBendingExample()
         {
             // Model and node creation
             var model = new Model();
