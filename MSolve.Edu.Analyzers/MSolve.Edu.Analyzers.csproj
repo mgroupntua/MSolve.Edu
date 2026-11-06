@@ -1,7 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <Product>MSolve.Edu</Product>
@@ -14,8 +13,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MSolve.Edu.FEM\MSolve.Edu.FEM.csproj" />
-    <ProjectReference Include="..\MSolve.Edu.Solvers\MSolve.Edu.Solvers.csproj" />
+    <ProjectReference Include="..\MSolve.Edu.FEM\MSolve.Edu.FEM.csproj"/>
+    <ProjectReference Include="..\MSolve.Edu.Solvers\MSolve.Edu.Solvers.csproj"/>
   </ItemGroup>
 
 </Project>

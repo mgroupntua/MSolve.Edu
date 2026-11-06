@@ -1,7 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
     <Authors>Dimitris Tsapetis, George Stavroulakis</Authors>
     <Company>Institute of Structural Analysis and Seismic Research, National Technical University of Athens, School of Civil Engineering</Company>
     <Product>MSolve.Edu</Product>
@@ -12,12 +11,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MSolve.Edu.LinearAlgebra\MSolve.Edu.LinearAlgebra.csproj" />
-    <ProjectReference Include="..\MSolve.Edu.Solvers\MSolve.Edu.Solvers.csproj" />
+    <ProjectReference Include="..\MSolve.Edu.LinearAlgebra\MSolve.Edu.LinearAlgebra.csproj"/>
+    <ProjectReference Include="..\MSolve.Edu.Solvers\MSolve.Edu.Solvers.csproj"/>
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Input\" />
+    <Folder Include="Input\"/>
   </ItemGroup>
 
 </Project>

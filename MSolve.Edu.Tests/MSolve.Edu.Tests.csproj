@@ -1,8 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	<OutputType>Exe</OutputType>
-	<TargetFramework>net6.0</TargetFramework>
+    <OutputType>Exe</OutputType>
 
     <IsPackable>false</IsPackable>
 
@@ -24,15 +23,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
-    <PackageReference Include="xunit" Version="2.4.0" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.11.0" />
+    <PackageReference Include="xunit" Version="2.9.3" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="4.0.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MSolve.Edu.Analyzers\MSolve.Edu.Analyzers.csproj" />
-    <ProjectReference Include="..\MSolve.Edu.FEM\MSolve.Edu.FEM.csproj" />
-    <ProjectReference Include="..\MSolve.Edu.Solvers\MSolve.Edu.Solvers.csproj" />
+    <ProjectReference Include="..\MSolve.Edu.Analyzers\MSolve.Edu.Analyzers.csproj"/>
+    <ProjectReference Include="..\MSolve.Edu.FEM\MSolve.Edu.FEM.csproj"/>
+    <ProjectReference Include="..\MSolve.Edu.Solvers\MSolve.Edu.Solvers.csproj"/>
   </ItemGroup>
 
 </Project>
