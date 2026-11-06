@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	<OutputType>Exe</OutputType>
+    <OutputType>Exe</OutputType>
 
     <IsPackable>false</IsPackable>
 
@@ -23,15 +23,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
-    <PackageReference Include="xunit" Version="2.4.0" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0"/>
+    <PackageReference Include="xunit" Version="2.4.0"/>
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0"/>
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MSolve.Edu.Analyzers\MSolve.Edu.Analyzers.csproj" />
-    <ProjectReference Include="..\MSolve.Edu.FEM\MSolve.Edu.FEM.csproj" />
-    <ProjectReference Include="..\MSolve.Edu.Solvers\MSolve.Edu.Solvers.csproj" />
+    <ProjectReference Include="..\MSolve.Edu.Analyzers\MSolve.Edu.Analyzers.csproj"/>
+    <ProjectReference Include="..\MSolve.Edu.FEM\MSolve.Edu.FEM.csproj"/>
+    <ProjectReference Include="..\MSolve.Edu.Solvers\MSolve.Edu.Solvers.csproj"/>
   </ItemGroup>
 
 </Project>

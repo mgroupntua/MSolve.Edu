@@ -11,7 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MSolve.Edu.LinearAlgebra\MSolve.Edu.LinearAlgebra.csproj" />
+    <ProjectReference Include="..\MSolve.Edu.LinearAlgebra\MSolve.Edu.LinearAlgebra.csproj"/>
   </ItemGroup>
 
 </Project>

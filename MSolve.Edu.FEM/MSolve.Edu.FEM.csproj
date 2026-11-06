@@ -11,12 +11,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MSolve.Edu.LinearAlgebra\MSolve.Edu.LinearAlgebra.csproj" />
-    <ProjectReference Include="..\MSolve.Edu.Solvers\MSolve.Edu.Solvers.csproj" />
+    <ProjectReference Include="..\MSolve.Edu.LinearAlgebra\MSolve.Edu.LinearAlgebra.csproj"/>
+    <ProjectReference Include="..\MSolve.Edu.Solvers\MSolve.Edu.Solvers.csproj"/>
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Input\" />
+    <Folder Include="Input\"/>
   </ItemGroup>
 
 </Project>
