@@ -1,7 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
     <Authors>Dimitris Tsapetis, George Stavroulakis</Authors>
     <Company>Institute of Structural Analysis and Seismic Research, National Technical University of Athens, School of Civil Engineering</Company>
     <Product>MSolve.Edu</Product>
